@@ -14,7 +14,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            /*
+            
             Console.WriteLine("Mata in tal 1: ");
             string inmatat;
             inmatat = Console.ReadLine();
@@ -64,9 +64,15 @@ namespace ConsoleApplication1
 
             Console.Write("Det blir " + " " + ((y * celsius) + x) + " " + "grader Farenheit");
 
-            */
+            
             //Övning5
-
+            Console.Write("cirkelns radie: ");
+            string inmatat;
+            inmatat = Console.ReadLine();
+            double radie = double.Parse(inmatat);
+            double pi = Math.PI;
+            Console.WriteLine("Area: " + (radie * radie * pi));
+            Console.WriteLine("Omkrets: " + (radie * pi * 2));
 
         }
     }
