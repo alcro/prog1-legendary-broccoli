@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Övning 1
+            Console.Write("Skriv in mönsterdjup:");
+            string inmatat = Console.ReadLine();
+            double x = double.Parse(inmatat);
+                
+                if (x < 1.6)
+            {
+               
+                Console.WriteLine("Lagligt däck");
+            }
+           
+            else
+            {
+                
+                Console.WriteLine("Olagligt däck!");
+            } 
+                //Övning 2
+            Console.Write("Mata in ålder:");
+            string inmatat2 = Console.ReadLine();
+            double y = double.Parse(inmatat2);
+
+            if ( 0<= y && y <= 12)
+            {
+
+                Console.WriteLine("vit");
+            }
+            if (13 <= y && y <= 18)
+            {
+
+                Console.WriteLine("grön");
+            }
+            if (19 <= y && y <= 25)
+            {
+
+                Console.WriteLine("röd");
+            }
+            if (26 <= y && y <= 99)
+            {
+
+                Console.WriteLine("blå");
+            }
+
+            if ( y > 99)
+            {
+
+                Console.WriteLine("Ogiltig ålder");
+            }
+            //Övning 3
+            Console.Write("Mata in tal 1:");
+            string inmatat3 = Console.ReadLine();
+            decimal z = decimal.Parse(inmatat3);
+            Console.Write("Mata in tal 2:");
+            string inmatat4 = Console.ReadLine();
+            decimal c = decimal.Parse(inmatat4);
+
+
+
+            if (z > c)
+            {
+
+                Console.WriteLine("tal 1 är större ");
+            }
+            if (z < c)
+            {
+
+                Console.WriteLine("tal 2 är större ");
+            }
+            if (z == c)
+            {
+
+                Console.WriteLine("talen  är lika ");
+            }
+            //Övning 4
+            Console.Write("Mata in ett tal :");
+            string inmatat5 = Console.ReadLine();
+            int b = int.Parse(inmatat5);
+
+
+
+
+            if ((b % 7) == 0) { Console.WriteLine("Talet är jämt delbart med 7"); }
+            else { Console.WriteLine("Talet är ej jämt delbart med 7. Resten blir " + (b % 7)); }
+
+
+
+
+
+
+
+
+
+
+
+        }
+    }
+}
