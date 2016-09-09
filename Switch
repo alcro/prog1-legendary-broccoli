@@ -1,0 +1,48 @@
+/* switchsatser övningar csharpskolan
+ * Alexander 9/9-2016
+ */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //övning 1
+            Console.WriteLine("skriv in ett heltal");
+            int tal = int.Parse(Console.ReadLine());
+
+
+            switch(tal)
+            {
+                case 1: Console.WriteLine("ett"); break;
+                case 2:Console.WriteLine("två"); break;
+                case 3: Console.WriteLine("tre"); break;
+                case 4: Console.WriteLine("fyra"); break;
+                default: Console.WriteLine("oligtigt tal"); break;
+            }
+
+            //övning 2
+
+            Console.WriteLine("skriv in en bokstav");
+            string bokstav;
+            bokstav = Console.ReadLine();
+
+            switch (bokstav)
+            {
+                case "n": Console.WriteLine("You walk North"); break;
+                case "s": Console.WriteLine(" You travel South"); break;
+                case "w": Console.WriteLine(" You wander east"); break;
+                case "e": Console.WriteLine(" You stroll east"); break;
+                default: Console.WriteLine("I don't understand"); break;
+            }
+
+
+        }
+    }
+}
