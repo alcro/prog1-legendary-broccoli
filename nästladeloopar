@@ -1,0 +1,89 @@
+
+/* Alexander Crompton 15te Nästlade loopar
+ * 14/10 2016
+ */ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace nästlade_loopar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*
+
+            // Övning 1
+
+            for (int y = 0; y < 10; y++)
+            {
+                for (int x = 0; x < 5; x++)
+                {
+                    Console.Write("o#");
+                }
+                Console.WriteLine();
+            }
+
+    
+            // Övning 2
+
+            for (int y = 0; y < 11; y++)
+            {
+                for (int x = 0; x < 1; x++)
+                {
+                    if (y % 2 == 0)
+                    {
+                        Console.Write("#o#o#o#o#o#");
+                        
+                    } 
+                
+              
+                    else
+                    {
+                        Console.Write("o#o#o#o#o#o");
+                       
+                    }
+                }
+                Console.WriteLine();
+            }
+            
+
+            // Övning 3
+
+            for (int y = 10; y > 0; y--)
+            {
+                for (int x = y; x > 0 ; x--)
+                {
+
+                    Console.Write("#");
+                }
+
+                Console.WriteLine();
+            }
+            */
+            // Övning 4
+
+            for (int y = 7; y > 0; y--)
+            {
+                for (int x = 7; x > 0; x--)
+                {
+                    if (x == 7)
+                    {
+                        int Console.Write("*");
+                    }
+                    else if( x< 7 && x>0)
+                    {
+
+                        Console.Write(".");
+                    }
+                }
+
+                Console.WriteLine();
+            }
+
+        }
+    }
+}
