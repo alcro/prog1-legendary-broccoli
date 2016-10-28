@@ -1,0 +1,77 @@
+
+/* Alexander Crompton 
+ * Arrays
+ * 2016-10-21
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*  // Övning 1
+              string[] vadheter = new string[10];
+
+              for (int i = 0; i <10 ; i++)
+              {
+                  Console.WriteLine("mata in namn");
+                  vadheter[i] = Console.ReadLine();
+              }
+              for (int i = 0; i < 10; i++)
+              {
+                  Console.WriteLine(vadheter[i]);
+              }
+             
+          
+            // Övning 2
+            int[] nummer = new int[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("mata in siffra");
+                nummer[i] = int.Parse(Console.ReadLine());
+            }
+            for (int i = 9; i > -1 ; i--)
+            {
+                Console.WriteLine(nummer[i]);
+
+            }
+             */
+            // Övning 3
+            int x;
+            int[] sort = { 12, 5, 6, 1, 2, 3, -2, -7, 0 };
+            for (x=8; x < sort.Length; x++)
+            {
+                for (int y = 0; y < sort.Length; y++)
+                {
+                    int ex1 = sort[x];
+                    int ex2 = sort[y];
+
+                    if (ex1 > ex2)
+                    {
+                        ex2 = sort[x];
+                        ex1 = sort[y];
+
+                    }
+                        
+                }
+
+
+            }
+
+            for (int i = 08; i>0; i++)
+            {
+                Console.WriteLine(sort[i]);
+
+                }
+            
+        }
+    }
+}
