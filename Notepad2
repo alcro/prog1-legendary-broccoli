@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace notepad
+{
+    public partial class Notepad : Form
+    {
+        private string fileName = null;
+        private bool isUnsaved = false;
+        private bool ignoreTextChangedEvent = false;
+        private object openFileDialog;
+
+        public Notepad()
+        {
+            InitializeComponent();
+            UpdateTitle();
+        }
+        private void UpdateTitle()
+        {
+            string file;
+            if (string.IsNullOrEmpty(fileName))
+                file = "unnamed";
+            else
+                file = Path.GetFileName(fileName);
+            if(isUnsaved)
+            Text = file + "* - Notepad";
+            else
+                Text = file + " - Notepad";
+
+
+        }
+        private void SaveFile()
+        {
+            if (string.IsNullOrEmpty(fileName))
+            {
+                if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    fileName = saveFileDialog.FileName;
+                else
+                    return;
+
+            }
+            File.WriteAllText(fileName, textBox1.Text);
+            isUnsaved = false;
+            UpdateTitle();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nEWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var eventsArgs = new FormClosingEventArgs(CloseReason.None, false);
+            Notepad_FormClosing(null, eventsArgs);
+            if (eventsArgs.Cancel)
+                return;
+            textBox1.Text = string.Empty;
+            fileName = null;
+            isUnsaved = false;
+            UpdateTitle();
+        }
+
+        private void oPENToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var eventsArgs = new FormClosingEventArgs(CloseReason.None, false);
+            Notepad_FormClosing(null, eventsArgs);
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                ignoreTextChangedEvent = true;
+               textBox1.Text = File.ReadAllText(openFileDialog1.FileName);
+                fileName = openFileDialog1.FileName;
+                isUnsaved = false;
+                UpdateTitle();
+            }
+        }
+
+        private void qUITToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void sAVEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFile();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (ignoreTextChangedEvent)
+            {
+                ignoreTextChangedEvent = false;
+                return;
+            }
+            isUnsaved = true;
+            UpdateTitle();
+        }
+
+        private void Notepad_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isUnsaved)
+            {
+               var res= MessageBox.Show(this, "would you like to save changes?", "Notepad", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                    if(res == System.Windows.Forms.DialogResult.Yes)
+                {
+                    SaveFile();
+                }
+                    else if(res== System.Windows.Forms.DialogResult.No)
+                {
+
+                }
+                else if (res == System.Windows.Forms.DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+
+                }
+            }
+        }
+    }
+}
